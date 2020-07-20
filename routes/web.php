@@ -14,11 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $param = array(
+      "uhere" => "Gundam Breaker Project"
+    );
+    return view('welcome', $param);
 });
-Route::get('login', function () {
-    return view('login');
+Route::resource('work', 'WorkController', ['only' => [
+    'index', 'create'
+]]);
+
+Route::get('/part/list', function () {
+    return view('partlist');
 });
-Route::get('register', function () {
-    return view('register');
+Route::get('/part/add', function () {
+    return view('partadd');
+});
+Route::get('/part/edit/{id?}', function ($id = null) {
+    return $id;
 });

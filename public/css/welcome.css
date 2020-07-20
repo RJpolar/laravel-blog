@@ -1,5 +1,5 @@
 html, body {
-    background-color: #ff0;
+    background-color: #fff;
     color: #636b6f;
     font-family: 'Nunito', sans-serif;
     font-weight: 200;
@@ -22,6 +22,12 @@ html, body {
 
 .top-right {
     position: absolute;
+    left: 10px;
+    top: 18px;
+}
+
+.second-right {
+    position: absolute;
     right: 10px;
     top: 18px;
 }
@@ -31,15 +37,7 @@ html, body {
 }
 
 .title {
-    font-size: 84px;
-    background-color: #00BBCC;
-    width: 900px;
-}
-
-#testid {
     font-size: 40px;
-    background-color: #0000CC;
-    width: 300px;
 }
 
 .links > a {
