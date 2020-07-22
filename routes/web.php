@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome', $param);
 });
 Route::resource('work', 'WorkController', ['only' => [
-    'index', 'create'
+    'index', 'create', 'store', 'edit'
 ]]);
 
 Route::get('/part/list', function () {

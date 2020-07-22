@@ -17,8 +17,8 @@ class WorkController extends Controller
         //
         $works = Works::all();
         $param = array(
-          'uhere'=> 'Work List',
-          'data' => $works
+            'uhere'=> 'Work List',
+            'data' => $works
         );
         return View('worklist', $param);
     }
@@ -31,6 +31,10 @@ class WorkController extends Controller
     public function create()
     {
         //
+        $param = array(
+            'uhere'=> 'Add Work'
+        );
+        return View('workadd', $param);
     }
 
     /**
@@ -42,6 +46,17 @@ class WorkController extends Controller
     public function store(Request $request)
     {
         //
+        $oWork = new Works();
+        if (isset($request->work_id))
+        {
+            $aWork = $oWork->find($request->work_id);
+            $aWork->name = $request->work_name;
+            $aWork->save();
+        } else {
+            $oWork->name = $request->work_name;
+            $oWork->save();
+        }
+        return redirect('/work');
     }
 
     /**
@@ -50,9 +65,15 @@ class WorkController extends Controller
      * @param  \App\Works  $works
      * @return \Illuminate\Http\Response
      */
-    public function edit(Works $works)
+    public function edit(Works $works, int $id)
     {
         //
+        $data = $works->find($id);
+        $param = array (
+            'uhere' => 'Edit Work',
+            'data' => $data
+        );
+        return View('workedit', $param);
     }
 
     /**
