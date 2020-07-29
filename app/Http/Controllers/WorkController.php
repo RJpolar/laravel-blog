@@ -76,16 +76,4 @@ class WorkController extends Controller
         return View('workedit', $param);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Works  $works
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Works $works)
-    {
-        //
-    }
-
 }
